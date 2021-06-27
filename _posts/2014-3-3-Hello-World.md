@@ -22,7 +22,7 @@ I made a basic model of a magnetic compass in Blender. It had two parts - a dial
 
 ### Writing the first P5JS script
 
-'<html>
+`<html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
     <script src="sketch_v1.js"></script>
@@ -31,8 +31,7 @@ I made a basic model of a magnetic compass in Blender. It had two parts - a dial
     <main>
     </main>
   </body>
-</html>'
-
+</html>`
 
 
 
