@@ -1,9 +1,9 @@
 ---
 layout: post
-title: You're up and running!
+title: Creating a Magnetic Compass in P5JS
 ---
 
-Next you can update your site name, avatar and other options using the _config.yml file in the root of your repository (shown below).
+I have been dabbling in 3D modelling with Blender ((https://blender.org)) with a view to bring some historical instruments and experiments to life. I was very excited when I discovered that there are javascript libraries such as (threejs.org) that can directly import entire scenes from Blender. Threejs seemed a bit complicated to start with when I'm still very new to javascript itself. So I decided to take my first little dips with a javascript library that couldn't be any friendlier, P5JS ((https://p5js.org)).
 
 ![_config.yml]({{ site.baseurl }}/images/config.png)
 
