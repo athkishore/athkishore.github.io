@@ -22,6 +22,8 @@ I made a basic model of a magnetic compass in Blender. It had two parts - a dial
 
 ### Writing the first P5JS script
 
+First, I created an HTML file. The head of the HTML file calls the P5JS library as well as the local script for the magnetic compass.
+
 `<html>
   <head>
     <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.js"></script>
