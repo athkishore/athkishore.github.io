@@ -35,7 +35,108 @@ First, I created an HTML file. The links to the P5JS library as well as the loca
       </body>
     </html>
 
+P5JS script for the compass:
 
+    let compass;
+    //let needleRotY=0;
+    let p1, p2, p3, p4, p5, p6, p7;
+    const B = 40e-6 //magnetic field of the Earth
+    const u = 60 //magnetic moment in Am^2
+    const I = 80e-7 //moment of inertia of the needle
+    let tau, alpha;
+    const res = 50e-6;
+    let omega = 0;
+    let time = 0;
+    let theta = 0;
+
+    function preload() {
+      compassNeedle = loadModel('compass-needle.obj');
+      compassDial = loadModel('compass-dial.obj');
+    }
+
+    function setup() {
+      createCanvas(400, 400, WEBGL);
+      p1 = createP('theta = '+ theta*180/PI);
+      p2 = createP('B = ' + B + ' T');
+      p3 = createP('u = ' + u + ' Am<sup>2</sup>');
+      p4 = createP('I = ' + I + ' kgm<sup>2</sup>');
+  
+      tau = u * B * sin(theta);
+  
+      if (omega > 0) {
+        alpha = (tau + res) / I;
+      } else if (omega < 0) {
+        alpha = (tau - res) / I;
+      } else {
+        alpha = tau / I;
+      }
+  
+      p5 = createP('alpha = ' + alpha + ' rad/s<sup>2</sup>');
+
+      p7 = createP('omega = ' + omega + ' rad/s');
+      p6 = createP('time = ' + time);
+
+      camera(0, -300, 200, 0, 0, 0);
+    }
+
+    function draw() {
+      background(200);
+  
+      orbitControl();
+  
+      push();
+      //rotateX(frameCount * 0.01);
+      //rotateY(frameCount * 0.01);
+      rotateY(theta);
+      scale(100);
+      model(compassNeedle);
+      pop();
+
+      tau = u * B * sin(theta);
+  
+      if (omega > 0) {
+        alpha = (tau + res) / I;
+      } else if (omega < 0) {
+        alpha = (tau - res) / I;
+      } else {
+        alpha = tau / I;
+        console.log('calculating')
+      }
+
+      //  alpha = tau / I;
+
+      p5.html('alpha = ' + alpha + ' rad/s<sup>2</sup>');
+
+      omega -= alpha * deltaTime/1000;
+      p7.html('omega = ' + omega + ' rad/s');
+  
+      theta += omega * deltaTime/1000;
+      p1.html('theta = ' + theta*180/PI);
+    
+      time += deltaTime;
+      p6.html('time= ' + time/1000);
+  
+      push();
+      //rotateX(90);
+      //rotateY(0);
+      scale(100);
+      model(compassDial);
+      pop();
+  
+      if (abs(theta) < 0.1 && abs(omega) < 0.1) {
+        theta = 0;
+        omega = 0;
+      }
+    }
+
+    function keyTyped() {
+      if (key === 'r') {
+        theta -= 0.5;
+      } else if (key === 'l') {
+        theta += 0.5;
+      }
+      return false;
+    }
 
 
 
