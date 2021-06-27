@@ -13,6 +13,6 @@ My first 3D historical instrument project in mind is Ampere's 'astatic needle'. 
 
 Since implementing a simulation of the astatic needle involves complicated vector calculations, I decided to start in a small way by first creating a simple magnetic compass kept in a horizontal position. In the first version, I ignored even the dip of the magnetic field assumed it to act horizonatlly towards the geographical north.
 
-![_config.yml]({{ site.baseurl }}/images/2021-06-27-ampere-astatic.png)
+![_config.yml]({{ site.baseurl }}/images/404.png)
 
 The easiest way to make your first post is to edit this one. Go into /_posts/ and update the Hello World markdown file. For more instructions head over to the [Jekyll Now repository](https://github.com/barryclark/jekyll-now) on GitHub.
